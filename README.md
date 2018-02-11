@@ -1,5 +1,7 @@
 # PseudoRandomStringsCore
 
+[![Build Status](https://travis-ci.org/arthrp/PseudoRandomStringsCore.svg?branch=master)](https://travis-ci.org/arthrp/PseudoRandomStringsCore)
+
 Productivity tool to generate random data - strings, emails, names, etc.
 
 Use it like:
