@@ -11,15 +11,16 @@ namespace PseudoRandomStringsCore
 
         static void Main(string[] args)
         {
-            var opts = Parser.Default.ParseArguments<StringOptions, EmailOptions, NameOptions>(args)
+            var opts = Parser.Default.ParseArguments<StringOptions, EmailOptions, NameOptions, NumberOptions>(args)
             	.MapResult(
                 (StringOptions op) => HandleStringOptions(op),
                 (EmailOptions op) => HandleEmailOptions(op),
                 (NameOptions op) => HandleNameOptions(op),
+                (NumberOptions op) => HandleNumberOptions(op),
                 errs => CODE_ERR);
 
 
-            Console.WriteLine("Finished");
+            Console.WriteLine("\nFinished");
         }
 
         static int HandleStringOptions(StringOptions opts)
@@ -43,6 +44,13 @@ namespace PseudoRandomStringsCore
         {
             var name = new RandomHelper().GetRandomName(opts.NameType);
             Console.WriteLine(name);
+            return OK;
+        }
+
+        static int HandleNumberOptions(NumberOptions opts)
+        {
+            var number = new RandomHelper().GetRandomInt(opts.Min, opts.Max);
+            Console.WriteLine(number);
             return OK;
         }
     }

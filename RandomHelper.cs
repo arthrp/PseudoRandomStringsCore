@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 public class RandomHelper 
@@ -114,4 +115,22 @@ public class RandomHelper
         }
     }
     
+    public int GetRandomInt(int min, int max)
+    {
+        if(max < min)
+        {
+            throw new ArgumentException("Minimum value can't be larger than maximum");
+        }
+
+        if(min < 0 || max < 0)
+        {
+            throw new ArgumentException("Values must be positive");
+        }
+
+        var rng = new RNGCryptoServiceProvider();
+
+        var randomBytes = new byte[4];
+        rng.GetBytes(randomBytes);
+        return (Math.Abs(BitConverter.ToInt32(randomBytes, 0)) % (max - min)) + min;
+    }
 }
