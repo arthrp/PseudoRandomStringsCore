@@ -10,3 +10,5 @@ Use it like:
 Will generate random 20-char email.
 
 You can get info about all commands by running ```PseudoRandomStringsCore help```.
+
+To get executable simply run ```dotnet publish -c Release -r (ubuntu-x64 | win7-x64)```.
