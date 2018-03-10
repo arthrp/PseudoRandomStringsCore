@@ -11,4 +11,4 @@ Will generate random 20-char email.
 
 You can get info about all commands by running ```PseudoRandomStringsCore help```.
 
-To get executable simply run ```dotnet publish -c Release -r (ubuntu-x64 | win7-x64)```.
+To get executable simply run ```dotnet publish -c Release -r  win7-x64``` or ```dotnet publish -c Release -r  ubuntu-x64``` depending on which OS do you run.
